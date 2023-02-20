@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#article-title {
+  margin-left: 106px;
+  margin-top: 20px;
+  color: white;
+  font-size: 3.3rem;
+  text-shadow: 2px 0px 4px rgb(65, 4, 78);
+}
+
+#container-img {
+  background-image: url("https://i1.wp.com/www.adams.es/blogs/alumno/files/2020/06/portada-empezar-a-estudiar.jpg?w=2280&ssl=1");
+  height: 20rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#section {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}
+
+@media (max-width: 568px) {
+  #section {
+    width: 70%;
+  }
+}
+
+#content {
+  text-align: center;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+}
+
+#a {
+  color: black;
+  text-decoration: none;
+}
+
+#a:visited {
+  text-decoration: none;
+}
+
+#a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#parrafo {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
+#form-comment {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #202020;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+#h3 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+input {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#admin-table {
+  margin: auto;
+  margin-top: 20px;
+  width: 85%;
+  /* border: 1px solid rgba(0, 0, 0, 0.361); */
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgb(161, 91, 161);
+}
+
+.modal {
+  width: 60%;
+  margin: auto;
+  margin-top: 50%;
+  padding: 10px;
+  border: 1px solid red;
+}
+
+#newArt {
+  box-shadow: 0 0 25px violet;
+  border-radius: 10px;
+  padding: 20px;
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+#newArt label {
+  margin-bottom: 20px;
+}
+
+#newArt input {
+  border-radius: 20px;
+  border: none;
+}
+
+textarea {
+  border: none;
+  border-radius: 20px;
+}
+
+#buttons {
+  width: 85%;
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+  padding: 10px;
+}
+
+#table {
+  margin-top: 30px;
+}
+
+#body {
+  background-color: antiquewhite;
+}
+
+.comment-container {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#h3-comment {
+  text-align: center;
+}
+
+#edit-form {
+  width: 60%;
+  margin: auto;
+}
+
+#main-title {
+  font-size: 4rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 25px rgb(161, 91, 161);
+}
+
+#subtitle {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 25px rgb(161, 91, 161);
+}
+
+#title-label {
+  margin-top: 20px;
+}
+
+#body-edit-form {
+  background-color: thistle;
+}
+
+#content:hover {
+  box-shadow: 0 0 25px rgb(134, 63, 134);
+}
+
+#title:hover {
+  box-shadow: 0 0 25px rgb(134, 63, 134);
+}
+
+.postComment {
+  padding: 5px;
+  color: #202020e2;
+}
+
+#smallComment {
+  font-size: 1rem;
+  color: black;
+  border-bottom: 1px solid #2020207b;
+}
