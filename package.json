@@ -1,0 +1,20 @@
+{
+  "name": "blog_article",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VirginiaBarbaro/blog_article.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VirginiaBarbaro/blog_article/issues"
+  },
+  "homepage": "https://github.com/VirginiaBarbaro/blog_article#readme"
+}
