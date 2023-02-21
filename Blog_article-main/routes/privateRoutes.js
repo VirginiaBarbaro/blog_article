@@ -3,7 +3,6 @@ const router = express.Router();
 const adminController = require("../controllers/adminController");
 const onlyAdminCanDelete = require("../middlewares/onlyAdminCanDelete")
 const editorOnlyModifyComment = require("../middlewares/editorOnlyModifyComment")
-// Toda las rutas adelante tienen /admin
 
 router.get("/all-users", adminController.allUsers) 
 

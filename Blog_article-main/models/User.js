@@ -31,11 +31,9 @@ class User extends Model {
         },
         roleName: {
           type: DataTypes.STRING,
-          // allowNull: false,
         },
         roleCode: {
           type: DataTypes.INTEGER,
-          // allowNull: false,
         },
       },
       {

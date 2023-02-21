@@ -6,17 +6,17 @@ const adminController = require("../controllers/adminController");
 
 router.get("/", articleController.showHome)
 
-router.get("/articles", articleController.showSingleArticle);  // OK
+router.get("/articles", articleController.showSingleArticle);  
 
-router.get("/login", userController.show); // ok
+router.get("/login", userController.show); 
 
-router.post("/login", userController.login); // ok
+router.post("/login", userController.login); 
 
-router.get("/logout", adminController.logout); // ok
+router.get("/logout", adminController.logout); 
 
-router.get("/sign-up", adminController.signUp); // ok
+router.get("/sign-up", adminController.signUp); 
 
-router.post("/sign-up", adminController.signUpData); // ok
+router.post("/sign-up", adminController.signUpData); 
 
 
 module.exports = router;

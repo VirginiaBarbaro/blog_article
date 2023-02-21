@@ -1,5 +1,4 @@
-const { User, Article, Comment } = require("../models/index");
-// const { User } = require("../models");
+const { User, Article } = require("../models/index");
 const passport = require("passport");
 const formidable = require("formidable");
 
@@ -95,6 +94,7 @@ const editForm = async (req, res) => {
   res.render("editForm", { article });
 };
 
+// Store a newly created user in storage.
 const editFormData = async (req, res) => {
   const artEdit = await Article.findByPk(req.params.id);
   if (req.user.roleCode >= 200) {
@@ -106,27 +106,6 @@ const editFormData = async (req, res) => {
     res.send("Permissions denied");
   }
 };
-
-// Store a newly created user in storage.
-// async function store(req, res) {
-//   const user = await User.findOne({ where: { email: req.body.email } });
-//   if (user) {
-//     res.redirect("/form-user");
-//   } else {
-//     const newUser = await User.create({
-//       firstname: req.body.firstname,
-//       lastname: req.body.lastname,
-//       email: req.body.email,
-//       password: await bcrypt.hash("req.body.password", 8),
-//       role: 0
-//     })
-//     console.log("se ha creado un usuario correctamente");
-//     return res.redirect("/admin");
-//   }
-// }
-
-// Otros handlers...
-// ...
 
 module.exports = {
   index,

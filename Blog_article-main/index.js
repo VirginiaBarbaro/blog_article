@@ -5,7 +5,7 @@ const commentSeeder = require("./seeders/commentSeeder");
 const passport = require("./passport.js");
 
 
-const { sequelize, User, Article, Comment } = require("./models");
+const { User, Article, Comment } = require("./models");
 
 const express = require("express");
 const app = express();
