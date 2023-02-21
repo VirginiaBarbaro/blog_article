@@ -5,9 +5,9 @@
     <a class="btn btn-primary  me-2" href="/login">LogIn</a>
     <a href="/sign-up" class="btn btn-warning  me-2" >Sign Up!</a>
     <% } else { %>
-    <a href="/logout" class="btn btn-danger ms-auto me-2">Logout</a>
+    <a href="/logout" class="btn btn-danger" id="logout-btn">Logout</a>
     <% } %> <% if (user && user.roleCode >= 200) { %>
-    <a class="btn btn-primary ms-auto me-2" href="/admin">Admin</a>
+    <a class="btn btn-primary ms-auto me-2" href="/user">Admin</a>
     <% } %>
   </div>
 </nav>

@@ -17,14 +17,14 @@
     <%- include("partials/navbar") %>
 
     <main>
-      <h1 style="text-align: center;">Welcome <%= user.firstname %> <%= user.lastname %> </h1>
+      <h1 id="welcome">Welcome <%= user.firstname %> <%= user.lastname %> </h1>
       <h2 id="article-title">Articles</h2>
       <div id="buttons">
-        <a href="/admin/create" class="btn btn-success text-end" id="new"> New Article</a>
+        <a href="/user/create" class="btn btn-success text-end" id="new"> New Article</a>
       </div>
       <% if (user && user.roleCode >= 400) { %>
         <a href="/admin/all-users">
-          <button class="btn btn-danger">Admin all users</button>
+          <button class="btn btn-danger" id="admin-users">Admin all users</button>
         </a>
      <% } %>
       <table class="table table-striped p-2" id="admin-table">
@@ -49,16 +49,16 @@
             <td><%= artic.createdAt %></td>
             <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
             <td>
-              <a href="/admin/edit/<%= artic.id %>">
+              <a href="/user/edit/<%= artic.id %>">
                 <button class="btn btn-primary">Modify</button>
               </a>
               <% if (user && user.id === artic.user.id) { %>
-                <a href="/admin/delete/<%= artic.id %>">
+                <a href="/user/delete/<%= artic.id %>">
                   <button class="btn btn-danger">Delete</button>
                 </a>
              <% } %>
              <% if (user && user.roleCode >= 400) { %>
-              <a href="/admin/delete/<%= artic.id %>">
+              <a href="/user/delete/<%= artic.id %>">
                 <button class="btn btn-danger">Delete</button>
               </a>
            <% } %>

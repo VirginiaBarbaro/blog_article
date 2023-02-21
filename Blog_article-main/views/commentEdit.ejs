@@ -15,7 +15,7 @@
 <body>
     <link rel="stylesheet" href="/style.css" />
 <div class="mb-3 p-4">
-  <form action="/admin/edit/comment/<%= comment.id %>" method="post" id="edit-form">
+  <form action="/admin/edit/comments/<%= comment.id %>" method="post" id="edit-form">
     <h3 class="title-edit-form">Modify the comment</h3>
     <label for="content" class="form-label" id="title-label">Content</label>
     <textarea type="text" class="form-control" id="content" name="content" value="<%= comment.content %>"></textarea>

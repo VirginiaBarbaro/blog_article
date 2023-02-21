@@ -42,8 +42,8 @@
           <% } %>
         </p>
         <% if (user && user.roleCode >= 300) { %>
-          <a class="btn btn-danger mb-4" href="/admin/comments/delete/<%= comment.id %>" >Delete</a>
-          <a href="/admin/edit/comment/<%= comment.id %>">
+          <a class="btn btn-danger" href="/articles/<%= comment.id %>" >Delete</a>
+          <a href="/articles/comment/<%= comment.id %>">
             <button class="btn btn-primary">Modify</button>
           </a>
           <% } %> 

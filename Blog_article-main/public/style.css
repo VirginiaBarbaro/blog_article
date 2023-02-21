@@ -195,3 +195,21 @@ textarea {
   color: black;
   border-bottom: 1px solid #2020207b;
 }
+
+#logout-btn {
+  margin-left: 77%;
+}
+
+#admin-users {
+  margin-left: 8%;
+}
+
+#welcome {
+  font-family: sans-serif;
+  text-align: center;
+ margin-top: 15px;
+}
+
+#img-articles {
+  align-items: center;
+}

@@ -2,29 +2,29 @@ const { sequelize, User, Article, Comment } = require("../models/index");
 const bcrypt = require("bcryptjs");
 const { where } = require("sequelize");
 
-const panelAdmin = async (req, res) => {
-  //ruta de admin
-  console.log("User que entro a admin = " + req.user.id);
-  if (req.user && req.user.roleCode >= 300) {
-    const articles = await Article.findAll({
-      include: User,
-    });
-    return res.render("admin", { articles });
-  } else {
-    const articles = await Article.findAll({
-      where: {
-        userId: req.user.id,
-      },
-      include: User, // incluyo User para la columna que trae firstname & lastname
-    });
-    return res.render("admin", { articles });
-  }
-};
+// const panelAdmin = async (req, res) => {
+//   //ruta de admin
+//   console.log("User que entro a admin = " + req.user.id);
+//   if (req.user && req.user.roleCode >= 300) {
+//     const articles = await Article.findAll({
+//       include: User,
+//     });
+//     return res.render("admin", { articles });
+//   } else {
+//     const articles = await Article.findAll({
+//       where: {
+//         userId: req.user.id,
+//       },
+//       include: User, // incluyo User para la columna que trae firstname & lastname
+//     });
+//     return res.render("admin", { articles });
+//   }
+// };
 
-const editForm = async (req, res) => {
-  const article = await Article.findByPk(req.params.id);
-  res.render("editForm", { article });
-};
+// const editForm = async (req, res) => {
+//   const article = await Article.findByPk(req.params.id);
+//   res.render("editForm", { article });
+// };
 
 const editCommentForm = async (req, res) => {
   const comment = await Comment.findByPk(req.params.id);
@@ -50,32 +50,32 @@ const editCommentFormData = async (req, res) => {
   }
 };
 
-const editFormData = async (req, res) => {
-  const artEdit = await Article.findByPk(req.params.id);
-  if (req.user.roleCode >= 200) {
-    artEdit.title = req.body.title;
-    artEdit.content = req.body.content;
-    await artEdit.save();
-    res.redirect("/articles");
-  } else {
-    res.send("Permissions denied");
-  }
-};
+// const editFormData = async (req, res) => {
+//   const artEdit = await Article.findByPk(req.params.id);
+//   if (req.user.roleCode >= 200) {
+//     artEdit.title = req.body.title;
+//     artEdit.content = req.body.content;
+//     await artEdit.save();
+//     res.redirect("/articles");
+//   } else {
+//     res.send("Permissions denied");
+//   }
+// };
 
-const destroy = async (req, res) => {
-  const id = req.params.id;
-  await Article.destroy({
-    where: {
-      id: id,
-    },
-  }).then((result) => {
-    if (result) {
-      res.redirect("/admin");
-    } else {
-      res.render("notFound");
-    }
-  });
-};
+// const destroy = async (req, res) => {
+//   const id = req.params.id;
+//   await Article.destroy({
+//     where: {
+//       id: id,
+//     },
+//   }).then((result) => {
+//     if (result) {
+//       res.redirect("/user");
+//     } else {
+//       res.render("notFound");
+//     }
+//   });
+// };
 
 const destroyComment = async (req, res) => {
   const id = req.params.id;
@@ -156,10 +156,10 @@ const signUpData = async (req, res) => {
 };
 
 module.exports = {
-  panelAdmin,
-  editForm,
-  editFormData,
-  destroy,
+  // panelAdmin,
+  // editForm,
+  // editFormData,
+  // destroy,
   logout,
   signUp,
   signUpData,

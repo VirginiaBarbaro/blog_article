@@ -3,6 +3,7 @@ const articleRoutes = require("./articleRoutes");
 const userRoutes = require("./userRoutes");
 const publicRoutes = require("./publicRoutes");
 const makeUserAvailableInViews = require("../middlewares/makeUserAvailableInViews");
+const apiRoutes = require("./apiRoutes")
 // const flash = require("connect-flash");
 // const express = require("express");
 // const session = require("express-session");
@@ -21,5 +22,6 @@ module.exports = (app) => {
     app.use("/admin", privateRoutes);
     app.use("/articles", articleRoutes);
     app.use("/user", userRoutes);
+    app.use("/api", apiRoutes)
 }
 
