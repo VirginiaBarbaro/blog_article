@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const apiController = require("../controllers/apiController")
 const { expressjwt: checkJwt } = require("express-jwt");
-const onlyAdminCanDelete = require("../middlewares/onlyAdminCanDelete")
 
 
 // Api articulos por Author
 router.get("/articles/:id", apiController.show); 
+
+// listado de comentarios por articulo
+router.get("/comments/:id", apiController.showComments)
 
 // Genera el token
 router.post("/token", apiController.token) // genera el token 
@@ -22,6 +24,5 @@ router.post("/posts", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), 
 
 // Eliminar articulo
 router.delete("/:id", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.destroy)
-
 
 module.exports = router;

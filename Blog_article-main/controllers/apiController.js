@@ -12,6 +12,16 @@ async function show(req, res) {
   res.json(articles);
 }
 
+const showComments = async (req, res) => {
+   const articleId = req.params.id 
+   const comments = await Comment.findAll({
+    where: {
+        articleId,
+    },
+   });
+   res.json(comments)
+}
+
 const index = async (req, res) => {
   const title = req.query.title;
   if (title) {
@@ -81,5 +91,6 @@ module.exports = {
   token,
   patch,
   create,
-  destroy
+  destroy,
+  showComments
 };
