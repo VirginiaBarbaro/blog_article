@@ -34,6 +34,15 @@ router.post("/edit/authors/:id", checkJwt({secret: "secretKey", algorithms: ["HS
 //Delete Authors
 router.delete("/authors/delete/:id", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.deleteAuthors)
 
+//Listado de comentario
+router.get("/comments", checkJwt({secret: "secretKey", algorithms: ["HS256"]}), apiController.allComments)
+
+//Editar comments
+router.patch("/edit/comments/:id", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.editComments)
+
+//Eliminar comentarios 
+router.delete("/comments/id:", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.deleteComment)
+
 module.exports = router;
 
 

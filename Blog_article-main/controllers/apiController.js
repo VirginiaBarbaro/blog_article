@@ -9,7 +9,7 @@ async function show(req, res) {
       userId,
     },
   });
-  res.json(articles);
+  return res.json(articles);
 }
 
 const showComments = async (req, res) => {
@@ -19,7 +19,7 @@ const showComments = async (req, res) => {
       articleId,
     },
   });
-  res.json(comments);
+  return res.json(comments);
 };
 
 const index = async (req, res) => {
@@ -45,7 +45,7 @@ const token = async (req, res) => {
     console.log(match);
     if (match) {
       const token = jwt.sign({ id: `${user.userId}` }, "secretKey");
-      res.json({ token });
+      return res.json({ token });
     }
   }
 };
@@ -62,7 +62,7 @@ const patch = async (req, res) => {
       }, //filas afectada
     },
   ).then((result) => {
-    res.json(result);
+    return res.json(result);
   });
 };
 
@@ -71,7 +71,7 @@ const create = async (req, res) => {
     title: req.body.title,
     content: req.body.content,
   }).then((data) => {
-    res.json(data);
+    return res.json(data);
   });
 };
 
@@ -81,13 +81,13 @@ const destroy = async (req, res) => {
       id: req.params.id,
     },
   }).then((output) => {
-    res.json(output);
+    return res.json(output);
   });
 };
 
 const authorList = async (req, res) => {
   const author = await User.findAll();
-  res.json(author);
+  return res.json(author);
 };
 
 const editAuthor = async (req, res) => {
@@ -103,7 +103,7 @@ const editAuthor = async (req, res) => {
       }, //filas afectada
     },
   ).then((result) => {
-    res.json(result);
+    return res.json(result);
   });
 };
 
@@ -113,9 +113,36 @@ const deleteAuthors = async (req, res) => {
       id: req.params.id,
     },
   }).then((output) => {
-    res.json(output);
+    return res.json(output);
   });
 };
+
+const allComments = async (req, res) => {
+  const comments = await Comment.findAll()
+  return res.json(comments)
+};
+
+const editComments = async (req, res) => {
+  await Comment.update({
+    content: req.body.content,
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then((result) => {
+    return res.json(result)
+  }) 
+};
+
+const deleteComment = async (req, res) => {
+  await Comment.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then((output) => {
+    return res.json(output)
+  })
+}
 
 module.exports = {
   show,
@@ -127,5 +154,8 @@ module.exports = {
   showComments,
   authorList,
   editAuthor,
-  deleteAuthors
+  deleteAuthors,
+  allComments,
+  editComments,
+  deleteComment
 };
