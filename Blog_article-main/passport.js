@@ -19,7 +19,7 @@ module.exports = (app) => {
       cb,
     ) {
       try {
-        const user = await User.findOne({ where: { email } });
+        const user = await User.findOne({ where: { email } }); //findOne ok
 
         if (!user) {
           console.log("Nombre de usuario no existe.");
