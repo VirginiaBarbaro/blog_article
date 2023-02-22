@@ -25,4 +25,16 @@ router.post("/posts", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), 
 // Eliminar articulo
 router.delete("/:id", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.destroy)
 
+//Listado de authores
+router.get("/authors", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.authorList)
+
+//Editar Authors 
+router.post("/edit/authors/:id", checkJwt({secret: "secretKey", algorithms: ["HS256"]}), apiController.editAuthor)
+
+//Delete Authors
+router.delete("/authors/delete/:id", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.deleteAuthors)
+
 module.exports = router;
+
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVuZGVmaW5lZCIsImlhdCI6MTY3NzAyNDE1NH0.J_YxW11-ZwVLyHfpZY2WtoH_zvcTeNmCW1AoIVX7kbs

@@ -13,14 +13,14 @@ async function show(req, res) {
 }
 
 const showComments = async (req, res) => {
-   const articleId = req.params.id 
-   const comments = await Comment.findAll({
+  const articleId = req.params.id;
+  const comments = await Comment.findAll({
     where: {
-        articleId,
+      articleId,
     },
-   });
-   res.json(comments)
-}
+  });
+  res.json(comments);
+};
 
 const index = async (req, res) => {
   const title = req.query.title;
@@ -76,13 +76,45 @@ const create = async (req, res) => {
 };
 
 const destroy = async (req, res) => {
-    await Article.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(output => {
-        res.json(output)
-    })
+  await Article.destroy({
+    where: {
+      id: req.params.id,
+    },
+  }).then((output) => {
+    res.json(output);
+  });
+};
+
+const authorList = async (req, res) => {
+  const author = await User.findAll();
+  res.json(author);
+};
+
+const editAuthor = async (req, res) => {
+  await User.update(
+    {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+    },
+    {
+      where: {
+        id: req.params.id,
+      }, //filas afectada
+    },
+  ).then((result) => {
+    res.json(result);
+  });
+};
+
+const deleteAuthors = async (req, res) => {
+  await User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  }).then((output) => {
+    res.json(output);
+  });
 };
 
 module.exports = {
@@ -92,5 +124,8 @@ module.exports = {
   patch,
   create,
   destroy,
-  showComments
+  showComments,
+  authorList,
+  editAuthor,
+  deleteAuthors
 };
