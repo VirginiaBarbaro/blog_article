@@ -93,7 +93,7 @@ const signUpData = async (req, res) => {
     },
   });
   if (created) {
-    req.login(user, () => res.redirect("/"));
+    req.login(user, () => res.redirect("/"));s
   } else {
     res.redirect("/sign-up");
   }
