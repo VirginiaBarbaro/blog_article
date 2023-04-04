@@ -3,14 +3,6 @@
   box-sizing: border-box;
 }
 
-#article-title {
-  margin-left: 106px;
-  margin-top: 20px;
-  color: white;
-  font-size: 3.3rem;
-  text-shadow: 2px 0px 4px rgb(65, 4, 78);
-}
-
 #container-img {
   background-image: url("https://i1.wp.com/www.adams.es/blogs/alumno/files/2020/06/portada-empezar-a-estudiar.jpg?w=2280&ssl=1");
   height: 20rem;
@@ -252,8 +244,53 @@ textarea {
   background-color: #005b47c1;
 }
 
+.sign-up-link {
+  color: #005b47;
+}
+
+.go-to-sign-up {
+  text-decoration: none;
+  color: white;
+}
+
 /* Navbar  */
 
 .link-navbar {
-  border: 1px solid red;
+  display: flex;
+}
+
+.navbar-link {
+  padding: 10px;
+  color: white;
+}
+
+.navbar-link:hover {
+  color: #005b47;
+  border: #005b47;
+  background-color: #ffffffac;
+  border-radius: 10px;
+
+}
+
+/* Admin panel  */
+
+.header-btn-title {
+  align-items: center;
+}
+
+.btn-action-admin {
+display: flex;
+justify-content: end;
+}
+
+.btn-admin-panel {
+  background-color: green;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.link-to {
+  color: #fff;
+  text-decoration: none;
 }

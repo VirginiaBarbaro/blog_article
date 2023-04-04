@@ -16,58 +16,65 @@
   <body>
     <%- include("partials/navbar") %>
 
-    <main>
-      <h1 id="welcome">Welcome <%= user.firstname %> <%= user.lastname %> </h1>
-      <h2 id="article-title">Articles</h2>
-      <div id="buttons">
-        <a href="/user/create" class="btn btn-success text-end" id="new"> New Article</a>
-      </div>
-      <% if (user && user.roleCode >= 400) { %>
-        <a href="/admin/all-users">
-          <button class="btn btn-danger" id="admin-users">Admin all users</button>
-        </a>
-     <% } %>
-      <table class="table table-striped p-2" id="admin-table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Content</th>
-            <th scope="col">Image</th>
-            <th scope="col">created at</th>
-            <th scope="col">Autor</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for (const artic of articles) { %>
-          <tr>
-            <th scope="row"><%= artic.id %></th>
-            <td><%= artic.title %></td>
-            <td><%= artic.content %></td>
-            <td><img src="/img/ <%= artic.image %>" alt="imgarticle" /></td>
-            <td><%= artic.createdAt %></td>
-            <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
-            <td>
-              <a href="/user/edit/<%= artic.id %>">
-                <button class="btn btn-primary">Modify</button>
-              </a>
-              <% if (user && user.id === artic.user.id) { %>
+    <div class="container">
+      <div class="row">
+        <h1 id="welcome">Welcome <%= user.firstname %> <%= user.lastname %></h1>
+        <div class="header-btn-title d-flex p-2 my-3">
+          <div class="col-lg-6">
+            <h2>Articles</h2>
+          </div>
+          <div class="col-lg-6 btn-action-admin">
+            <button class="mx-3 btn-admin-panel">
+              <a href="/user/create" class="link-to"> New Article</a>
+            </button>
+            <% if (user && user.roleCode >= 400) { %>
+            <button class="btn-admin-panel">
+              <a href="/admin/all-users" class="link-to">Admin all users</a>
+            </button>
+          </div>
+        </div>
+        <% } %>
+        <table class="table table-striped p-2">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Content</th>
+              <th scope="col">Image</th>
+              <th scope="col">created at</th>
+              <th scope="col">Autor</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (const artic of articles) { %>
+            <tr>
+              <th scope="row"><%= artic.id %></th>
+              <td><%= artic.title %></td>
+              <td><%= artic.content %></td>
+              <td><img src="/img/ <%= artic.image %>" alt="imgarticle" /></td>
+              <td><%= artic.createdAt %></td>
+              <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
+              <td>
+                <a href="/user/edit/<%= artic.id %>">
+                  <button class="btn btn-primary">Modify</button>
+                </a>
+                <% if (user && user.id === artic.user.id) { %>
                 <a href="/user/delete/<%= artic.id %>">
                   <button class="btn btn-danger">Delete</button>
                 </a>
-             <% } %>
-             <% if (user && user.roleCode >= 400) { %>
-              <a href="/user/delete/<%= artic.id %>">
-                <button class="btn btn-danger">Delete</button>
-              </a>
-           <% } %>
-            </td>
-          </tr>
-          <% } %>
-        </tbody>
-      </table>
-    </main>
+                <% } %> <% if (user && user.roleCode >= 400) { %>
+                <a href="/user/delete/<%= artic.id %>">
+                  <button class="btn btn-danger">Delete</button>
+                </a>
+                <% } %>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <%- include ("partials/footer") %>
     <script

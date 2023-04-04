@@ -7,39 +7,74 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
   </head>
   <body>
-    <form action="/sign-up" method="post" class="row g-3 shadow p-4 rounded" id="signup-form">
-      <label for="firstname" class="form-label">Firstname</label>
-      <input
-        type="text"
-        class="form-control"
-        id="firstname"
-        placeholder="firstname"
-        name="firstname"
-      />
+    <div class="form-login">
+      <div class="container p-5">
+        <div class="row formulary">
+          <div class="d-flex card-login">
+            <div
+              class="formulary-welcome-message col-md-6 col-lg-6 text-center d-flex flex-column justify-content-center"
+            >
+              <h4>Sign up and create your own blogs!</h4>
+              <p>What are you waiting for?</p>
+              <a class="go-to-sign-up" href="/login"
+                ><p>Have already an account? <strong class="sign-up-link">Sign in!</strong></p></a
+              >
+            </div>
+            <div class="col-md-5 col-lg-5">
+              <form action="/sign-up" method="post" class="p-2">
+                <label for="firstname"></label>
+                <input
+                  type="text"
+                  class="input-tx p-1"
+                  id="firstname"
+                  placeholder="Firstname"
+                  name="firstname"
+                />
+                <label for="lastname"></label>
+                <input
+                  type="text"
+                  class="input-tx p-1"
+                  id="lastname"
+                  placeholder="Lastname"
+                  name="lastname"
+                />
 
-      <label for="lastname" class="form-label">Lastname</label>
-      <input
-        type="text"
-        class="form-control"
-        id="lastname"
-        placeholder="lastname"
-        name="lastname"
-      />
+                <label for="email"></label>
+                <input
+                  type="email"
+                  class="input-tx p-1"
+                  id="email"
+                  placeholder="Email"
+                  name="email"
+                />
+                <label for="password"></label>
+                <input
+                  type="password"
+                  class="input-tx p-1"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
 
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="email" name="email" />
-
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" name="password" />
-
-      <button type="submit" class="btn btn-success">Join us!</button>
-      <a href="/" class="btn btn-primary">Back</a> 
-    </form>
+                <button
+                  type="submit"
+                  type="sumbit"
+                  class="log-in-btn rounded border-0 w-50 mt-5 mb-4 d-block mx-auto"
+                >
+                  Join us!
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,13 +1,25 @@
 <nav class="navbar bg-black">
   <div class="container-fluid">
-    <a href="/" style="text-decoration: none"><h4 class="navbar text-white">Hack the blog</h4></a>
-    <% if (!user) { %>
-    <a class="btn btn-primary  me-2" href="/login">LogIn</a>
-    <a href="/sign-up" class="btn btn-warning  me-2" >Sign Up!</a>
-    <% } else { %>
-    <a href="/logout" class="btn btn-danger" id="logout-btn">Logout</a>
-    <% } %> <% if (user && user.roleCode >= 200) { %>
-    <a class="btn btn-primary ms-auto me-2" href="/user">Admin</a>
-    <% } %>
+    <div>
+      <a href="/" style="text-decoration: none"><h4 class="navbar text-white">Hack the blog</h4></a>
+    </div>
+    <div class="link-navbar ms-auto">
+      <% if (!user) { %>
+      <div>
+        <a class="mx-3 navbar-link text-decoration-none" href="/login">LogIn</a>
+      </div>
+      <div>
+        <a href="/sign-up" class="mx-3 navbar-link text-decoration-none">Sign Up!</a>
+      </div>
+      <% } else { %>
+      <div>
+        <a href="/logout" class="navbar-link text-decoration-none mx-3">Logout</a>
+      </div>
+      <% } %> <% if (user && user.roleCode >= 200) { %>
+      <div>
+        <a class="mx-3 navbar-link text-decoration-none" href="/user">Admin</a>
+      </div>
+      <% } %>
+    </div>
   </div>
 </nav>
