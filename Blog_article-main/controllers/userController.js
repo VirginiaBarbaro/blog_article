@@ -19,7 +19,6 @@ async function show(req, res) {
 const login = passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login",
-  failureFlash: true,
 });
 
 const errorLogin = async (email, passeord, done) => {

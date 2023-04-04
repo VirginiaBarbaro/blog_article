@@ -213,3 +213,47 @@ textarea {
 #img-articles {
   align-items: center;
 }
+
+/* login  */
+
+.form-login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1496661415325-ef852f9e8e7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.formulary {
+  padding: 3rem 1.5rem 3rem 1.5rem;
+  background-color: #2020204f;
+  backdrop-filter: blur(3px);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.input-tx {
+ border-radius: 10px;
+ border: none;
+}
+
+.log-in-btn {
+  padding: 0.65rem 0 0.65rem 0;
+  color: rgba(255, 255, 255, 0.776);
+  background-color: #005b47;
+  font-weight: 200;
+  transition: background-color 0.15s ease-in-out 0.1s;
+}
+
+.log-in-btn:hover {
+  background-color: #005b47c1;
+}
+
+/* Navbar  */
+
+.link-navbar {
+  border: 1px solid red;
+}
