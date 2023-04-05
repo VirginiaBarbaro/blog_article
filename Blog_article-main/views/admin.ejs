@@ -19,14 +19,18 @@
     <div class="container">
       <div class="row">
         <h1 id="welcome">Welcome <%= user.firstname %> <%= user.lastname %></h1>
-        <div class="header-btn-title d-flex p-2 my-3">
-          <div class="col-lg-6">
+        <div class="col-lg-6 title-action-writer">
+          <div>
             <h2>Articles</h2>
           </div>
-          <div class="col-lg-6 btn-action-admin">
-            <button class="mx-3 btn-admin-panel">
+          <div>
+            <button class="mx-2 btn-admin-panel">
               <a href="/user/create" class="link-to"> New Article</a>
             </button>
+          </div>
+        </div>
+        <div class="header-btn-title p-2 my-3">
+          <div class="btn-action-admin">
             <% if (user && user.roleCode >= 400) { %>
             <button class="btn-admin-panel">
               <a href="/admin/all-users" class="link-to">Admin all users</a>
@@ -34,49 +38,51 @@
           </div>
         </div>
         <% } %>
-        <table class="table table-striped p-2">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Title</th>
-              <th scope="col">Content</th>
-              <th scope="col">Image</th>
-              <th scope="col">created at</th>
-              <th scope="col">Autor</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for (const artic of articles) { %>
-            <tr>
-              <th scope="row"><%= artic.id %></th>
-              <td><%= artic.title %></td>
-              <td><%= artic.content %></td>
-              <td><img src="/img/ <%= artic.image %>" alt="imgarticle" /></td>
-              <td><%= artic.createdAt %></td>
-              <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
-              <td>
-                <a href="/user/edit/<%= artic.id %>">
-                  <button class="btn btn-primary">Modify</button>
-                </a>
-                <% if (user && user.id === artic.user.id) { %>
-                <a href="/user/delete/<%= artic.id %>">
-                  <button class="btn btn-danger">Delete</button>
-                </a>
-                <% } %> <% if (user && user.roleCode >= 400) { %>
-                <a href="/user/delete/<%= artic.id %>">
-                  <button class="btn btn-danger">Delete</button>
-                </a>
-                <% } %>
-              </td>
-            </tr>
-            <% } %>
-          </tbody>
-        </table>
+        <div class="table-admin-div">
+          <table class="table table-striped p-2">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Image</th>
+                <th scope="col">created at</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const artic of articles) { %>
+              <tr>
+                <th scope="row"><%= artic.id %></th>
+                <td><%= artic.title %></td>
+                <td><%= artic.content %></td>
+                <td><img src="/img/ <%= artic.image %>" alt="imgarticle" /></td>
+                <td><%= artic.createdAt %></td>
+                <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
+                <td>
+                  <a href="/user/edit/<%= artic.id %>">
+                    <button class="btn btn-primary">Modify</button>
+                  </a>
+                  <% if (user && user.id === artic.user.id || user && user.roleCode >= 400) { %>
+                  <a href="/user/delete/<%= artic.id %>">
+                    <button class="btn btn-danger">Delete</button>
+                  </a>
+                  <% } %>
+                   <!-- <% if (user && user.roleCode >= 400) { %>
+                  <a href="/user/delete/<%= artic.id %>">
+                    <button class="btn btn-danger">Delete</button>
+                  </a>
+                  <% } %> -->
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
       </div>
+      <%- include ("partials/footer") %>
     </div>
-
-    <%- include ("partials/footer") %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

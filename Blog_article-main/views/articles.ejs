@@ -15,39 +15,67 @@
   </head>
   <body>
     <%- include("partials/navbar.ejs") %>
-    <div class="container-img">
-      <h2><%= article.title %></h2>
-      <p><%= article.user.firstname %> <%= article.user.lastname %> <%= article.createdAt %></p>
-      <img class="img-fluid mt-2" src="<%= article.image %>" alt="imagen del Autor" />
-    </div>
-    <p id="parrafo"><%= article.content %></p>
+    <div class="container">
+      <div class="header-article">
+        <div class="d-flex justify-content-center my-4">
+          <img
+            class="img-fluid mt-2 imagen-author-article"
+            src="<%= article.image %>"
+            alt="imagen del Autor"
+          />
+          <h3 class="fullname-author-article p-4">
+            <%= article.user.firstname %> <%= article.user.lastname %>
+          </h3>
+        </div>
+        <h2 class="text-center"><%= article.title %></h2>
+        <p id="parrafo"><%= article.content %></p>
+        <p class="text-center my-3"><%= article.createdAt %></p>
+      </div>
 
-    <div class="mb-3">
-      <% if (user) { %>
-      <h3 id="h3-comment">Add comment</h3>
-      <form action="/articles/comments/<%= article.id %> " method="post" id="form-comment">
-        <textarea class="form-control" id="content" rows="3" name="content"></textarea>
-        <button id="boton" class="btn btn-primary">Post</button>
-      </form>
-      <% } %>
-      <div class="comment-container">
-        <h3 class="comment-h3">Comments ( <%= comments.length %> )</h3>
-        <% for (const comment of comments) { %>
-        <p class="postComment"><%= comment.content %></p>
-        <p id="smallComment">
-          <% if (!comment.user) { %>
-            Comment by anonymous user
-          <% } else{ %>
-            Comment by <%= comment.user.firstname %> <%= comment.user.lastname %>
-          <% } %>
-        </p>
-        <% if (user && user.roleCode >= 300) { %>
-          <a class="btn btn-danger" href="/articles/<%= comment.id %>" >Delete</a>
-          <a href="/articles/comment/<%= comment.id %>">
-            <button class="btn btn-primary">Modify</button>
-          </a>
-          <% } %> 
+      <div class="mb-5">
+        <% if (user) { %>
+        <h3 id="h3-comment" class="mt-5">Add comment</h3>
+        <form
+          action="/articles/comments/<%= article.id %> "
+          method="post"
+          class="form-comment-article"
+        >
+          <textarea class="form-control mt-5" id="content" rows="3" name="content"></textarea>
+          <button id="boton" class="btn btn-primary">Post</button>
+        </form>
         <% } %>
+        <div class="comment-container">
+          <h3 class="comment-h3 mb-4">Comments ( <%= comments.length %> )</h3>
+          <% for (const comment of comments) { %>
+          <div class="my-4">
+            <div class="comment-article-body">
+              <h5 class="postComment mt-5"><%= comment.content %></h5>
+
+              <p class="comment-by-article">
+                <% if (!comment.user) { %> Comment by anonymous user <% } else{ %> Comment by
+                <strong> <%= comment.user.firstname %> <%= comment.user.lastname %> </strong><% } %>
+              </p>
+
+              <div class="action-admin-comment">
+                <% if (user && user.roleCode >= 400) { %>
+                <div class="btn-action-comment-admin ms-auto">
+                  <a class="btn btn-danger mb-3 btn-delete-admin-comment" href="/articles/comments/<%= comment.id %>">
+                    Delete
+                  </a>
+                </div>
+                <% } %>
+                <div class="btn-action-comment-admin ms-auto">
+                  <% if(user && user.roleCode >=300 ) { %>
+                  <a class="btn btn-warning mb-3" href="/admin/edit/comments/<%= comment.id %>">
+                    Modify
+                  </a>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
       </div>
     </div>
     <%- include ("partials/footer") %>

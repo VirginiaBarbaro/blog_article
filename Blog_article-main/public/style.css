@@ -53,14 +53,14 @@
   padding: 10px;
 }
 
-#form-comment {
+/* #form-comment {
   width: 80%;
   margin: auto;
   padding: 20px;
   border: 1px solid #202020;
   border-radius: 5px;
   margin-top: 50px;
-}
+} */
 
 #h3 {
   text-align: center;
@@ -75,15 +75,6 @@ input {
   width: 50%;
   margin: auto;
   margin-bottom: 20px;
-}
-
-#admin-table {
-  margin: auto;
-  margin-top: 20px;
-  width: 85%;
-  /* border: 1px solid rgba(0, 0, 0, 0.361); */
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgb(161, 91, 161);
 }
 
 .modal {
@@ -182,11 +173,11 @@ textarea {
   color: #202020e2;
 }
 
-#smallComment {
+/* #smallComment {
   font-size: 1rem;
   color: black;
   border-bottom: 1px solid #2020207b;
-}
+} */
 
 #logout-btn {
   margin-left: 77%;
@@ -199,7 +190,7 @@ textarea {
 #welcome {
   font-family: sans-serif;
   text-align: center;
- margin-top: 15px;
+  margin-top: 15px;
 }
 
 #img-articles {
@@ -228,8 +219,8 @@ textarea {
 }
 
 .input-tx {
- border-radius: 10px;
- border: none;
+  border-radius: 10px;
+  border: none;
 }
 
 .log-in-btn {
@@ -269,7 +260,6 @@ textarea {
   border: #005b47;
   background-color: #ffffffac;
   border-radius: 10px;
-
 }
 
 /* Admin panel  */
@@ -279,8 +269,8 @@ textarea {
 }
 
 .btn-action-admin {
-display: flex;
-justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .btn-admin-panel {
@@ -293,4 +283,49 @@ justify-content: end;
 .link-to {
   color: #fff;
   text-decoration: none;
+}
+
+.title-action-writer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Article details  */
+
+.imagen-author-article {
+  border-radius: 50%;
+}
+
+.fullname-author-article {
+  display: grid;
+  place-items: center;
+}
+
+.form-comment-article {
+  width: 80%;
+  margin: auto;
+}
+
+.action-admin-comment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-action-comment-admin {
+  display: flex;
+  position: absolute;
+  right: 12.5rem;
+  justify-content: start;
+  padding-bottom: 20px;
+}
+
+.comment-by-article {
+  display: inline;
+  margin-top: 10px;
+}
+
+.btn-delete-admin-comment {
+  margin-right: 5rem;
 }
