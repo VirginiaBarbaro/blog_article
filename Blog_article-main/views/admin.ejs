@@ -17,7 +17,7 @@
     <%- include("partials/navbar") %>
 
     <div class="container">
-      <div class="row">
+      <div class="row mt-5">
         <h1 id="welcome">Welcome <%= user.firstname %> <%= user.lastname %></h1>
         <div class="col-lg-6 title-action-writer">
           <div>
@@ -45,7 +45,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
-                <th scope="col">Image</th>
                 <th scope="col">created at</th>
                 <th scope="col">Autor</th>
                 <th scope="col">Action</th>
@@ -57,16 +56,15 @@
                 <th scope="row"><%= artic.id %></th>
                 <td><%= artic.title %></td>
                 <td><%= artic.content %></td>
-                <td><img src="/img/ <%= artic.image %>" alt="imgarticle" /></td>
                 <td><%= artic.createdAt %></td>
                 <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
                 <td>
                   <a href="/user/edit/<%= artic.id %>">
-                    <button class="btn btn-primary">Modify</button>
+                    <button class="btn-table-panel-admin-modify my-4">Modify</button>
                   </a>
                   <% if (user && user.id === artic.user.id || user && user.roleCode >= 400) { %>
                   <a href="/user/delete/<%= artic.id %>">
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn-table-panel-admin-delete my-4">Delete</button>
                   </a>
                   <% } %>
                    <!-- <% if (user && user.roleCode >= 400) { %>

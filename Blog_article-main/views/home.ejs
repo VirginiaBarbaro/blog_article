@@ -16,16 +16,19 @@
   <body>
     <%- include("partials/navbar") %>
     <div id="container-img">
-      <h2 id="main-title">Hack the blog</h2>
-      <p id="subtitle">The Hack Academy's blog</p>
+      <h2 id="hero-image-title">Hack the blog</h2>
+      <p id="hero-image-text">The Hack Academy's blog</p>
     </div>
     <section id="section">
       <% for (const art of articles) { %>
-      <div id="content">
+      <div class="content-home-article my-3">
         <a id="a" href="/articles/<%= art.id %> "><h4><%= art.title %></h4></a>
-        <small> Created by <%= art.user.firstname %> </small>
-        <small> Created by <%= art.user.lastname %> </small>
-        <small> Created by <%= art.createdAt %> </small>
+        <small>
+          Created by
+          <strong class="fullname-article-home"
+            ><%= art.user.firstname %> <%= art.user.lastname %></strong
+          ></small
+        >
         <hr />
       </div>
       <% } %>
