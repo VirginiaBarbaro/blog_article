@@ -45,7 +45,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
-                <th scope="col">created at</th>
                 <th scope="col">Autor</th>
                 <th scope="col">Action</th>
               </tr>
@@ -56,22 +55,16 @@
                 <th scope="row"><%= artic.id %></th>
                 <td><%= artic.title %></td>
                 <td><%= artic.content %></td>
-                <td><%= artic.createdAt %></td>
                 <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
                 <td>
                   <a href="/user/edit/<%= artic.id %>">
                     <button class="btn-table-panel-admin-modify my-4">Modify</button>
                   </a>
-                  <% if (user && user.id === artic.user.id || user && user.roleCode >= 400) { %>
+                  <% if (user && user.id === ar tic.user.id || user && user.roleCode >= 400) { %>
                   <a href="/user/delete/<%= artic.id %>">
                     <button class="btn-table-panel-admin-delete my-4">Delete</button>
                   </a>
                   <% } %>
-                   <!-- <% if (user && user.roleCode >= 400) { %>
-                  <a href="/user/delete/<%= artic.id %>">
-                    <button class="btn btn-danger">Delete</button>
-                  </a>
-                  <% } %> -->
                 </td>
               </tr>
               <% } %>
