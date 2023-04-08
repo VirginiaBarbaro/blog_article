@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-7 m-auto">
             <form action="/user/edit/<%= article.id %>" method="post" class="edit-form">
-              <h3 class="title-edit-form">Modify the article</h3>
+              <h3 class="title-edit-form text-center">Modify the article</h3>
               <label for="title" class="form-label my-3">Title</label>
               <input
                 type="text"
@@ -37,10 +37,12 @@
               <textarea class="form-control" id="content" rows="3" name="content">
               <%= article.content %></textarea
               >
-              <a href="/user" class="text-decoration-none text-black fs-5"
-                ><i class="bi bi-arrow-left"></i>Back</a
-              >
-              <button type="submit" class="btn-edit-form mt-4">Edit</button>
+              <div class="d-flex justify-content-between">
+                <a href="/user" class="text-decoration-none text-black fs-5 mt-4"
+                  ><i class="bi bi-arrow-left"></i>Back</a
+                >
+                <button type="submit" class="btn btn-success">Edit</button>
+              </div>
             </form>
           </div>
         </div>
