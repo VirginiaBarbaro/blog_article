@@ -143,21 +143,29 @@ textarea {
   text-align: center;
 }
 
-#edit-form {
-  width: 60%;
-  margin: auto;
+/* Edit form  */
+
+.form-edit-article {
+  height: 100vh;
+  background: rgb(0, 91, 71);
+  background: radial-gradient(circle, rgba(0, 91, 71, 1) 0%, rgba(208, 143, 100, 0.811) 100%);
 }
 
-#title-label {
-  margin-top: 20px;
+.edit-form {
+  margin-top: 7rem !important;
+  /* padding: 3rem 1.5rem 3rem 1.5rem; */
+  background-color: #2020204f;
+  backdrop-filter: blur(3px);
+  text-align: center;
+  border-radius: 10px;
+  padding: 2rem;
+  color: #f5f5f5;
 }
 
-#body-edit-form {
-  background-color: thistle;
-}
-
-#title:hover {
-  box-shadow: 0 0 25px rgb(134, 63, 134);
+.btn-edit-form {
+  color: white;
+  background-color: #005b47;
+  border: none;
 }
 
 .postComment {

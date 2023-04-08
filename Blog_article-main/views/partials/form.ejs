@@ -1,14 +1,25 @@
 <link rel="stylesheet" href="/style.css" />
-<div class="mb-3 p-4">
-  <form action="/user/edit/<%= article.id %>" method="post" id="edit-form">
-    <h3 class="title-edit-form">Modify your article</h3>
-    <label for="title" class="form-label" id="title-label">Title</label>
-    <input type="text" class="form-control" id="title" name="title" value="<%= article.title %>" />
-    <label for="content" class="form-label">Content</label>
-    <textarea class="form-control" id="content" rows="3" name="content">
-<%= article.content %></textarea
-    >
-    <button type="submit" class="btn btn-success">Edit</button>
-    <a href="/user" class="btn btn-primary">Back</a> 
-  </form>
-</div>
+<!-- <%- include("partials/navbar") %>
+<div class="container">
+  <div class="row">
+    <div class="col-7 m-auto">
+      <form action="/user/edit/<%= article.id %>" method="post" class="edit-form">
+        <h3 class="title-edit-form">Modify the article</h3>
+        <label for="title" class="form-label" id="title-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          value="<%= article.title %>"
+        />
+        <label for="content" class="form-label">Content</label>
+        <textarea class="form-control" id="content" rows="3" name="content">
+          <%= article.content %></textarea
+        >
+        <button type="submit" class="btn btn-success">Edit</button>
+        <a href="/user" class="btn btn-primary">Back</a>
+      </form>
+    </div>
+  </div>
+</div> -->
