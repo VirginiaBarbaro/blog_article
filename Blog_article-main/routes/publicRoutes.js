@@ -4,9 +4,9 @@ const articleController = require("../controllers/articleController");
 const userController = require("../controllers/userController");
 const adminController = require("../controllers/adminController");
 
-router.get("/", articleController.showHome)
+router.get("/", articleController.showHome) //index
 
-router.get("/articles", articleController.showSingleArticle);  
+router.get("/articles", articleController.showSingleArticle);  //Show
 
 router.get("/login", userController.show); 
 

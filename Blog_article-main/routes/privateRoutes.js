@@ -12,4 +12,8 @@ router.get("/edit/comments/:id", editorOnlyModifyComment, adminController.editCo
 
 router.post("/edit/comments/:id", editorOnlyModifyComment, adminController.editCommentFormData); 
 
+router.get("/edit/user/:id", adminController.edit)
+
+router.post("/edit/user/:id", adminController.update)
+
 module.exports = router;

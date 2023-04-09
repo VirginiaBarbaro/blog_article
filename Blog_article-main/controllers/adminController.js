@@ -25,6 +25,22 @@ const editCommentFormData = async (req, res) => {
   }
 };
 
+const edit = async (req, res) => {
+  const user = await User.findByPk(req.params.id)
+  res.render("adminEditUser", {user})
+}
+
+const update = async (req, res) => {
+  editUser = await User.findByPk(req.params.id);
+
+  editUser.firstname = req.body.firstname
+  editUser.lastname = req.body.lastname
+
+  await editUser.save();
+  console.log(req.body)
+  res.redirect("/admin/all-users")
+}
+
 const destroyComment = async (req, res) => {
   const id = req.params.id;
   const result = await Comment.findByPk(id, { include: Article });
@@ -107,5 +123,7 @@ module.exports = {
   allUsers,
   destroyUser,
   editCommentForm,
-  editCommentFormData
+  editCommentFormData,
+  edit,
+  update
 };
