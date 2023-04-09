@@ -25,7 +25,7 @@
           </div>
           <div>
             <button class="mx-2 btn-admin-panel">
-              <a href="/user/create" class="link-to"> New Article</a>
+              <a href="/articles/create" class="link-to"> New Article</a>
             </button>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="btn-action-admin">
             <% if (user && user.roleCode >= 400) { %>
             <button class="btn-admin-panel">
-              <a href="/admin/all-users" class="link-to">Admin all users</a>
+              <a href="/user" class="link-to">Admin all users</a>
             </button>
           </div>
         </div>
@@ -57,11 +57,11 @@
                 <td><%= artic.content %></td>
                 <td><%= artic.user.firstname %> <%= artic.user.lastname %></td>
                 <td>
-                  <a href="/user/edit/<%= artic.id %>">
+                  <a href="/articles/edit/<%= artic.id %>">
                     <button class="btn-table-panel-admin-modify my-4">Modify</button>
                   </a>
                   <% if (user && user.id === artic.user.id || user && user.roleCode >= 400) { %>
-                  <a href="/user/delete/<%= artic.id %>">
+                  <a href="/articles/delete/<%= artic.id %>">
                     <button class="btn-table-panel-admin-delete my-4">Delete</button>
                   </a>
                   <% } %>

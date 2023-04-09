@@ -44,6 +44,3 @@ router.patch("/edit/comments/:id", checkJwt({ secret: "secretKey", algorithms: [
 router.delete("/comments/id:", checkJwt({ secret: "secretKey", algorithms: ["HS256"] }), apiController.deleteComment)
 
 module.exports = router;
-
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVuZGVmaW5lZCIsImlhdCI6MTY3NzAyNDE1NH0.J_YxW11-ZwVLyHfpZY2WtoH_zvcTeNmCW1AoIVX7kbs

@@ -1,22 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const articleController = require("../controllers/articleController");
-const userController = require("../controllers/userController");
-const adminController = require("../controllers/adminController");
+const publicController = require("../controllers/publicController");
 
-router.get("/", articleController.showHome) //index
+router.get("/", publicController.index);
 
-router.get("/articles", articleController.showSingleArticle);  //Show
+router.get("/articles/:id", publicController.show);
 
-router.get("/login", userController.show); 
+router.get("/login", publicController.loginForm);
 
-router.post("/login", userController.login); 
+router.post("/login", publicController.login);
 
-router.get("/logout", adminController.logout); 
+router.get("/logout", publicController.logout);
 
-router.get("/sign-up", adminController.signUp); 
+router.get("/sign-up", publicController.create);
 
-router.post("/sign-up", adminController.signUpData); 
-
+router.post("/sign-up", publicController.store);
 
 module.exports = router;

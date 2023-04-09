@@ -36,7 +36,7 @@
         <% if (user) { %>
         <h3 id="h3-comment" class="mt-5">Add comment</h3>
         <form
-          action="/articles/comments/<%= article.id %> "
+          action="/comments/<%= article.id %>"
           method="post"
           class="form-comment-article"
         >
@@ -59,14 +59,14 @@
               <div class="action-admin-comment">
                 <% if (user && user.roleCode >= 400) { %>
                 <div class="btn-action-comment-admin ms-auto">
-                  <a class="btn btn-danger mb-3 btn-delete-admin-comment" href="/articles/comments/<%= comment.id %>">
+                  <a class="btn btn-danger mb-3 btn-delete-admin-comment" href="/comments/delete/<%= comment.id %>">
                     Delete
                   </a>
                 </div>
                 <% } %>
                 <div class="btn-action-comment-admin ms-auto">
                   <% if(user && user.roleCode >=300 ) { %>
-                  <a class="btn btn-warning btn-modify-admin-comment mb-3" href="/admin/edit/comments/<%= comment.id %>">
+                  <a class="btn btn-warning btn-modify-admin-comment mb-3" href="/comments/edit/<%= comment.id %>">
                     Modify
                   </a>
                   <% } %>

@@ -1,14 +1,13 @@
-const { User, Article, Comment } = require("../models/index");
+const { Article, Comment } = require("../models/index");
+const formidable = require("formidable");
 
-const showHome = async (req, res) => {
-  const articles = await Article.findAll({
-    include: User,
-    order: [["updatedAt", "DESC"]],
-  });
-  return res.render("home", { articles });
-};
+const form = formidable({
+  multiples: true,
+  uploadDir: __dirname + "/../public/img/",
+  keepExtensions: true,
+});
 
-const postDataArticle = async (req, res) => {
+const store = async (req, res) => {
   form.parse(req, async (err, fields, files) => {
     const newArticle = await Article.create({
       userId: req.user.id,
@@ -20,23 +19,47 @@ const postDataArticle = async (req, res) => {
   });
 };
 
-const showSingleArticle = async (req, res) => {
-  const article = await Article.findByPk(req.params.id, {
-    include: [User],
-  });
-  const comments = await Comment.findAll({
-    where: {
-      articleId: req.params.id,
-    },
-    include: User,
-  });
-  res.render("articles", {article, comments});
+const create = (req, res) => {
+  return res.render("newArticle");
 };
 
+const edit = async (req, res) => {
+  const article = await Article.findByPk(req.params.id);
+  res.render("editForm", { article });
+};
+
+const update = async (req, res) => {
+  const artEdit = await Article.findByPk(req.params.id);
+  if (req.user.roleCode >= 200) {
+    artEdit.title = req.body.title;
+    artEdit.content = req.body.content;
+    await artEdit.save();
+    res.redirect("/");
+  } else {
+    res.send("Permissions denied");
+  }
+};
+
+
+const destroy = async (req, res) => {
+  const id = req.params.id;
+  await Article.destroy({
+    where: {
+      id: id,
+    },
+  }).then((result) => {
+    if (result) {
+      res.redirect("/admin");
+    } else {
+      res.render("notFound");
+    }
+  });
+};
 
 module.exports = {
-  showHome,
-  postDataArticle,
-  showSingleArticle,
+  create,
+  store,
+  update,
+  edit,
+  destroy,
 };
-

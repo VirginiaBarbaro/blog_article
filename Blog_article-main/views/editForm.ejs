@@ -23,7 +23,7 @@
       <div class="container">
         <div class="row">
           <div class="col-7 m-auto">
-            <form action="/user/edit/<%= article.id %>" method="post" class="edit-form">
+            <form action="/articles/edit/<%= article.id %>" method="post" class="edit-form">
               <h3 class="title-edit-form text-center">Modify the article</h3>
               <label for="title" class="form-label my-3">Title</label>
               <input
@@ -38,7 +38,7 @@
               <%= article.content %></textarea
               >
               <div class="d-flex justify-content-between">
-                <a href="/user" class="text-decoration-none text-black fs-5 mt-4"
+                <a href="/admin" class="text-decoration-none text-black fs-5 mt-4"
                   ><i class="bi bi-arrow-left"></i>Back</a
                 >
                 <button type="submit" class="btn btn-success">Edit</button>

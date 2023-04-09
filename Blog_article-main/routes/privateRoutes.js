@@ -1,19 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const adminController = require("../controllers/adminController");
-const onlyAdminCanDelete = require("../middlewares/onlyAdminCanDelete")
-const editorOnlyModifyComment = require("../middlewares/editorOnlyModifyComment")
+const readerNotAllowed = require("../middlewares/readerNotAllowed");
+const isAuthenticated = require("../middlewares/isAuthenticated");
+const privateController = require("../controllers/privateController");
 
-router.get("/all-users", adminController.allUsers) 
-
-router.get("/delete/user/:id", onlyAdminCanDelete, adminController.destroyUser);  
-
-router.get("/edit/comments/:id", editorOnlyModifyComment, adminController.editCommentForm); 
-
-router.post("/edit/comments/:id", editorOnlyModifyComment, adminController.editCommentFormData); 
-
-router.get("/edit/user/:id", adminController.edit)
-
-router.post("/edit/user/:id", adminController.update)
+router.get("/", isAuthenticated, readerNotAllowed, privateController.index);
 
 module.exports = router;

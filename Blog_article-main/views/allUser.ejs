@@ -21,7 +21,7 @@
     <%- include("partials/navbar.ejs") %>
     <div class="container">
       <h2 class="title-all-users">
-        <a href="/user" class="text-decoration-none text-black">
+        <a href="/admin" class="text-decoration-none text-black">
           <i class="bi bi-arrow-left me-1"></i>
         </a>
         Users list
@@ -44,10 +44,10 @@
             <td class="text-center"><%= user.firstname %></td>
             <td class="text-center"><%= user.lastname %></td>
             <td class="text-center">
-              <a href="/admin/edit/user/<%= user.id %>" class="text-decoration-none">
+              <a href="/user/edit/<%= user.id %>" class="text-decoration-none">
                 <button class="btn-table-panel-admin-modify">Modify</button>
               </a>
-              <a href="/admin/delete/user/<%= user.id %>">
+              <a href="/user/delete/<%= user.id %>">
                 <button class="btn-table-panel-admin-delete">Delete</button>
               </a>
               <% } %>

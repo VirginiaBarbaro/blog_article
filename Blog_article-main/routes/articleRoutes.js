@@ -1,17 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const articleController = require("../controllers/articleController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
-const commentController = require("../controllers/commentController");
-const adminController = require("../controllers/adminController")
-const onlyAdminCanDelete = require("../middlewares/onlyAdminCanDelete");
-const editorOnlyModifyComment = require("../middlewares/editorOnlyModifyComment")
+const readerNotAllowed = require("../middlewares/readerNotAllowed");
+const articleController = require("../controllers/articleController");
+const writerAllowEditOwnArticle = require("../middlewares/writerAllowEditOwnArticle");
+const editorNotDeleteOtherArticles = require("../middlewares/editorNotDeleteOtherArticles")
 
+router.get("/create", readerNotAllowed, articleController.create); //Arreglar form crear articulo
 
-router.post("/comments/:id", isAuthenticated, commentController.commentPost);
+router.post("/create", readerNotAllowed, articleController.store); //Arreglar
 
-router.get("/:id", articleController.showSingleArticle);
+router.get("/edit/:id", isAuthenticated, writerAllowEditOwnArticle, articleController.edit);
 
-router.get("/comments/:id", editorOnlyModifyComment, onlyAdminCanDelete, adminController.destroyComment)
+router.post("/edit/:id", writerAllowEditOwnArticle, articleController.update);
+
+router.get("/delete/:id",  editorNotDeleteOtherArticles, articleController.destroy)
 
 module.exports = router;
