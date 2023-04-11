@@ -93,15 +93,6 @@ input {
   border: 1px solid red;
 }
 
-/* #newArt {
-  box-shadow: 0 0 25px violet;
-  border-radius: 10px;
-  padding: 20px;
-  width: 50%;
-  margin: auto;
-  margin-top: 30px;
-} */
-
 #newArt label {
   margin-bottom: 20px;
 }
@@ -261,7 +252,6 @@ textarea {
 }
 
 .navbar-link {
-  padding: 10px;
   color: white;
 }
 
@@ -270,6 +260,45 @@ textarea {
   border: #005b47;
   background-color: #ffffffac;
   border-radius: 20px;
+}
+
+/* Offcanvas about project  */
+
+.navbar-link-offcanvas {
+  position: fixed !important;
+  bottom: 10%;
+  left: 95%;
+  rotate: 270deg;
+  background-color: #005b47ba;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+@media (max-width: 575px) {
+  .navbar-link-offcanvas {
+    position: fixed;
+    left: 84%;
+  }
+}
+
+.navbar-link-offcanvas:hover {
+  background-color: #005b47;
+}
+
+.text-offcanvas-project {
+  font-size: 0.95rem;
+}
+
+.cta-offcanvas-project {
+  background-color: #005b47ba;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.cta-offcanvas-project:hover {
+  background-color: #005b47;
 }
 
 /* Admin panel  */
@@ -292,6 +321,16 @@ textarea {
 
 .btn-admin-panel:hover {
   background-color: #005b47f3;
+}
+
+.btn-admin-panel-new-article {
+  background-color: #005b47d0;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  /* float: right; */
+  /* position: absolute;
+  right: 4%; */
 }
 
 .btn-table-panel-admin-modify {
@@ -365,29 +404,29 @@ textarea {
 }
 
 .btn-delete-admin-comment {
-  margin-right: 5rem;
-  border-radius: 20px;
-  background-color: #d34c31ca;
-  color: white;
-  border: none;
-  padding: 0.5rem;
+  margin-right: 5rem !important;
+  border-radius: 20px !important;
+  background-color: #d34c31ca !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.5rem !important;
 }
 
 .btn-delete-admin-comment:hover {
-  background-color: #d34c31;
+  background-color: #d34c31 !important;
 }
 
 .btn-modify-admin-comment {
-  border-radius: 20px;
-  background-color: #d08f64ca;
+  border-radius: 20px !important;
+  background-color: #d08f64ca !important;
   color: white !important;
-  border: none;
-  padding: 0.5rem;
+  border: none !important;
+  padding: 0.5rem !important;
 }
 
 .btn-post-comment-article {
-  background-color: #005b47d0;
-  border-radius: 20px;
+  background-color: #005b47d0 !important;
+  border-radius: 20px !important;
 }
 
 .btn-post-comment-article:hover {
@@ -395,7 +434,7 @@ textarea {
 }
 
 .btn-modify-admin-comment:hover {
-  background-color: #d08f64;
+  background-color: #d08f64 !important;
 }
 
 .header-article {

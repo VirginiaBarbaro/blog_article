@@ -42,28 +42,28 @@ const logout = async (req, res, next) => {
 };
 
 const create = async (req, res) => {
-    return res.render("signUp");
-  };
+  return res.render("signUp");
+};
 
-  const store = async (req, res) => {
-    //le pasamos la password ya hasheada
-    const passHashed = await bcrypt.hash(req.body.password, 8);
-    const [user, created] = await User.findOrCreate({
-      where: {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        password: passHashed,
-        roleCode: 100,
-        roleName: "reader"
-      },
-    });
-    if (created) {
-      req.login(user, () => res.redirect("/"));
-    } else {
-      res.redirect("/sign-up");
-    }
-  };
+const store = async (req, res) => {
+  //le pasamos la password ya hasheada
+  const passHashed = await bcrypt.hash(req.body.password, 8);
+  const [user, created] = await User.findOrCreate({
+    where: {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: passHashed,
+      roleCode: 100,
+      roleName: "reader",
+    },
+  });
+  if (created) {
+    req.login(user, () => res.redirect("/"));
+  } else {
+    res.redirect("/sign-up");
+  }
+};
 
 module.exports = {
   index,
@@ -72,5 +72,5 @@ module.exports = {
   login,
   logout,
   create,
-  store
+  store,
 };
