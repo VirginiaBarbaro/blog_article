@@ -46,7 +46,7 @@ const destroy = async (req, res) => {
   });
   await result.destroy();
   if (result) {
-    res.redirect("/admin/all-users");
+    res.redirect("/user");
   } else {
     res.send("Permission Denied");
   }
