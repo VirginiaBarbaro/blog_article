@@ -144,6 +144,11 @@ const deleteComment = async (req, res) => {
   })
 }
 
+
+const test = (req, res) => {
+  return res.json("prueba api")
+}
+
 module.exports = {
   show,
   index,
@@ -157,5 +162,6 @@ module.exports = {
   deleteAuthors,
   allComments,
   editComments,
-  deleteComment
+  deleteComment,
+  test
 };

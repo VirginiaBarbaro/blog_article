@@ -7,6 +7,12 @@ const { expressjwt: checkJwt } = require("express-jwt");
 // Api articulos por Author
 router.get("/articles/:id", apiController.show); 
 
+
+
+router.get("/test", apiController.test)  //Test
+
+
+
 // listado de comentarios por articulo
 router.get("/comments/:id", apiController.showComments)
 
