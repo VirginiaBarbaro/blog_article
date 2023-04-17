@@ -29,9 +29,9 @@
             </button>
           </div>
         </div>
+        <% if (user && user.roleCode >= 400) { %>
         <div class="header-btn-title p-2 my-3">
           <div class="btn-action-admin">
-            <% if (user && user.roleCode >= 400) { %>
             <button class="btn-admin-panel">
               <a href="/user" class="link-to">Admin all users</a>
             </button>

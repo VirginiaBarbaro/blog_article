@@ -29,7 +29,7 @@ async function init(sequelize) {
   await commentSeeder(Comment);
 }
 
-//  init(sequelize);
+ init(sequelize)
 
 routes(app)
 app.listen(APP_PORT, () => console.log(`Listening http://localhost:${APP_PORT}`));
