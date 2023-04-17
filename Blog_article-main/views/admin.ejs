@@ -17,17 +17,94 @@
     <%- include("partials/navbar") %>
 
     <div class="container">
+      <button
+        class="mx-1 navbar-link-offcanvas text-decoration-none px-2 text-white"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#staticBackdrop"
+        aria-controls="staticBackdrop"
+      >
+        Project
+      </button>
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-backdrop="static"
+        tabindex="-1"
+        id="staticBackdrop"
+        aria-labelledby="staticBackdropLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="staticBackdropLabel">Sobre el proyecto</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <p class="text-offcanvas-project">
+              El presente blog, es un proyecto desarrollado a lo largo del bootcamp de Hack Academy.
+            </p>
+            <hr />
+            <p class="text-offcanvas-project">
+              Para simplificar el acceso a la aplicación, se proporcionan los siguientes usuarios de
+              prueba:
+            </p>
+            <p class="text-offcanvas-project">
+              <i class="bi bi-body-text me-1"></i>
+              <strong>Reader:</strong>
+            </p>
+            <ul class="text-offcanvas-project">
+              <li>E-mail: reader@hackblog.com</li>
+              <li>Password: 1234</li>
+            </ul>
+            <hr />
+            <p class="text-offcanvas-project">
+              <i class="bi bi-journal me-1"></i>
+              <strong>Writer:</strong>
+            </p>
+            <ul class="text-offcanvas-project">
+              <li>E-mail: writer@hackblog.com</li>
+              <li>Password: 1234</li>
+            </ul>
+            <hr />
+            <p class="text-offcanvas-project">
+              <i class="bi bi-pencil-square me-1"></i>
+              <strong>Editor:</strong>
+            </p>
+            <ul class="text-offcanvas-project">
+              <li>E-mail: editor@hackblog.com</li>
+              <li>Password: 1234</li>
+            </ul>
+            <hr />
+            <p class="text-offcanvas-project">
+              <i class="bi bi-person-gear me-1"></i>
+              <strong>Admin:</strong>
+            </p>
+            <ul class="text-offcanvas-project">
+              <li>E-mail: admin@hackblog.com</li>
+              <li>Password: 1234</li>
+            </ul>
+            <hr />
+            <a class="text-decoration-none" href="/login">
+              <button class="cta-offcanvas-project text-white">Iniciar sesión</button>
+            </a>
+          </div>
+        </div>
+      </div>
       <div class="row mt-5">
         <h1 id="welcome">Welcome <%= user.firstname %> <%= user.lastname %></h1>
         <div class="col-lg-6 title-action-writer">
           <div>
             <h2>Articles</h2>
           </div>
-          <div>
+          <!-- <div>
             <button class="btn-admin-panel-new-article">
               <a href="/articles/create" class="link-to"> New Article</a>
             </button>
-          </div>
+          </div> -->
         </div>
         <% if (user && user.roleCode >= 400) { %>
         <div class="header-btn-title p-2 my-3">

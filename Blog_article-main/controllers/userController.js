@@ -65,7 +65,7 @@ const update = async (req, res) => {
 
   await editUser.save();
   console.log(req.body);
-  res.redirect("/admin/all-users");
+  res.redirect("/user");
 };
 
 const index = async (req, res) => {
