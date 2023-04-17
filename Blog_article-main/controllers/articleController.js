@@ -1,4 +1,4 @@
-const { Article, Comment } = require("../models/index");
+const { Article } = require("../models/index");
 const formidable = require("formidable");
 
 const form = formidable({
