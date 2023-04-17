@@ -3,6 +3,7 @@ const userSeeder = require("./seeders/userSeeder");
 const articleSeeder = require("./seeders/articleSeeder");
 const commentSeeder = require("./seeders/commentSeeder");
 const passport = require("./passport.js");
+const cors = require("cors");
 
 const { sequelize, User, Article, Comment } = require("./models");
 
@@ -17,10 +18,10 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(cors());
 
 app.use(makeUserAvailableInViews);
 passport(app);
-
 
 async function init(sequelize) {
   await sequelize.sync({ force: true });
@@ -31,5 +32,5 @@ async function init(sequelize) {
 
 //  init(sequelize)
 
-routes(app)
+routes(app);
 app.listen(APP_PORT, () => console.log(`Listening http://localhost:${APP_PORT}`));
