@@ -8,6 +8,9 @@
             {
         "src": "/(.*)",
         "dest": "index.js"
+      },
+      {
+        "rewrites": [{ "source": "/index.js/(.*)", "destination": "index.js" }]
       }
     ]
   }
