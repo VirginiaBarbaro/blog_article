@@ -40,7 +40,6 @@ const update = async (req, res) => {
   }
 };
 
-
 const destroy = async (req, res) => {
   const id = req.params.id;
   await Article.destroy({
