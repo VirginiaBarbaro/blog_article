@@ -2,19 +2,19 @@
     "version": 2,
     "routes": [
       {
-        "src": "/css/(.)",
+        "src": "/css/(.*)",
         "dest": "/public/css/$1"
       },
       {
-        "src": "/img/(.)",
+        "src": "/img/(.*)",
         "dest": "/public/img/$1"
       },
       {
-        "src": "/js/(.)",
+        "src": "/js/(.*)",
         "dest": "/public/js/$1"
       },
       {
-        "src": "/(.)",
+        "src": "/(.*)",
         "dest": "/server.js"
       }
     ]
