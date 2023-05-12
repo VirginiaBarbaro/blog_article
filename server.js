@@ -17,7 +17,6 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(cors());
 app.use(makeUserAvailableInViews);
-app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 passport(app);
